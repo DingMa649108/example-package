@@ -15,7 +15,7 @@
         <repository>
         <id>github</id>
         <name>GitHub DingMa649108 Apache Maven Packages</name>
-        <url>https://maven.pkg.github.com/DingMa649108/simple-package</url>
+        <url>https://maven.pkg.github.com/DingMa649108/example-package</url>
         </repository>
     </distributionManagement>
 
