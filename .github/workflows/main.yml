@@ -16,9 +16,21 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'
-          distribution: 'adopt'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ./settings.xml
+          distribution: 'adopt'      
+          
+      - name: Generate settings.xml
+        run: |
+          echo "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\"" > settings.xml
+          echo "  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" >> settings.xml
+          echo "  xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd\">" >> settings.xml
+          echo "  <servers>" >> settings.xml
+          echo "    <server>" >> settings.xml
+          echo "      <id>github</id>" >> settings.xml
+          echo "      <username>DingMa649108</username>" >> settings.xml
+          echo "      <password>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</password>" >> settings.xml
+          echo "    </server>" >> settings.xml
+          echo "  </servers>" >> settings.xml
+          echo "</settings>" >> settings.xml
           
       - name: Upload settings.xml artifact
         uses: actions/upload-artifact@v2
