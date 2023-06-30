@@ -19,8 +19,16 @@ jobs:
           distribution: 'adopt'
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ./settings.xml
+          
+      - name: Upload settings.xml artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: settings-xml
+          path: ./settings.xml
 
       - name: Publish to GitHub Packages
         run: mvn deploy
         env:
           GITHUB_TOKEN: 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
+          
+     
